@@ -15,7 +15,10 @@ git reset --soft HEAD~
 ```
 open in VSCode and see the files changed. After inspection is done, simply do the following to reset to the latest version and perform the previous steps again when necessary. Run the command to make the repo up to date
 ```
-git pull
+git reset
+git checkout .
+git clean -df
+git checkout master
 ```
 
 ## Sequence of creation and changes to take note
