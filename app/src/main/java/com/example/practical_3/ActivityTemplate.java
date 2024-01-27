@@ -7,18 +7,20 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityTemplate extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_template);
 
-        Button BtnGoToTemplateActivity = findViewById(R.id.BtnGoToTemplateActivity);
-        BtnGoToTemplateActivity.setOnClickListener(new View.OnClickListener() {
+        // region Activity
+        Button BtnGoToMain = findViewById(R.id.BtnGoToMain);
+
+        BtnGoToMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ActivityTemplate.class);
+                Intent intent = new Intent(ActivityTemplate.this, MainActivity.class);
                 startActivity(intent);
                 // called to perform onDestroy(), very optional
                 finish();
@@ -29,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        System.out.println("main stopping");
+        System.out.println("template stopping");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        System.out.println("main being destroyed");
+        System.out.println("template activity being destroyed");
     }
 }
