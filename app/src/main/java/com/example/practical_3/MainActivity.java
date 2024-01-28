@@ -3,9 +3,12 @@ package com.example.practical_3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -45,6 +48,28 @@ public class MainActivity extends AppCompatActivity {
                     message = "Please come again next time!";
                 }
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // region Spinner
+        // The choices you provide for the spinner can come from any source, but you must provide them through a SpinnerAdapter,
+        // such as an ArrayAdapter if the choices are available in an array or a CursorAdapter if the choices are available
+        // from a database query.
+        Spinner planetSpinner = (Spinner) findViewById(R.id.planetSpinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.planets_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        planetSpinner.setAdapter(adapter);
+        // change the default spinner selection
+        planetSpinner.setSelection(2);
+        planetSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                Toast.makeText(getApplicationContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
