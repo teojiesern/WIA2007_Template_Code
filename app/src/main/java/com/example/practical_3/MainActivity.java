@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String[] BIRTHMONTHS = new String[]{"January", "February", "March", "April", "May"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+        // region autoCompleteTextView
+        ArrayAdapter<String> ACTVadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, BIRTHMONTHS);
+        AutoCompleteTextView ACTVBirthMonth = (AutoCompleteTextView) findViewById(R.id.ACTVBirthMonth);
+        ACTVBirthMonth.setAdapter(ACTVadapter);
     }
 
     @Override
