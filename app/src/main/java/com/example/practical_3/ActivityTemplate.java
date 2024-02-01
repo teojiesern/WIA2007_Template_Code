@@ -6,6 +6,15 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.practical_3.ViewHolderAdapterTemplate;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 public class ActivityTemplate extends AppCompatActivity {
 
@@ -26,6 +35,29 @@ public class ActivityTemplate extends AppCompatActivity {
                 finish();
             }
         });
+
+        // region recyclerView
+        RecyclerView recyclerView = findViewById(R.id.RVTemplate);
+        final ViewHolderAdapterTemplate adapter = new ViewHolderAdapterTemplate(new ViewHolderAdapterTemplate.NoteDiff());
+        recyclerView.setAdapter(adapter);
+        // can choose other layoutManager like GridLayoutManager but usually LinearLayoutManager is more than enough
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // usually will fetch something from somewhere but this is just a mock of data to be presented
+        String[] mockArray = {
+                "Mock String 1",
+                "Mock String 2",
+                "Mock String 3",
+                "Mock String 4",
+                "Mock String 5",
+                "Mock String 6",
+                "Mock String 7",
+                "Mock String 8",
+                "Mock String 9",
+                "Mock String 10"
+        };
+        List<String> mockData = new ArrayList<String>(Arrays.asList(mockArray));
+        adapter.submitList(mockData);
     }
 
     @Override
