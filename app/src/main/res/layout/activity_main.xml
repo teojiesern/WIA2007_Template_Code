@@ -80,10 +80,10 @@
         app:layout_constraintTop_toBottomOf="@+id/planetSpinner" />
 
     <Button
-        android:id="@+id/BtnShowAlertDialog"
+        android:id="@+id/BtnFragmentActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Show Alert Dialog"
+        android:text="Go to fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/BtnGoToTemplateActivity"
         app:layout_constraintTop_toBottomOf="@+id/planetSpinner" />

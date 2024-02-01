@@ -1,6 +1,5 @@
 package com.example.practical_3;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -88,27 +87,13 @@ public class MainActivity extends AppCompatActivity {
         ACTVBirthMonth.setAdapter(ACTVadapter);
 
         // region showAlertDialog
-        Button BtnShowAlertDialog = findViewById(R.id.BtnShowAlertDialog);
-        BtnShowAlertDialog.setOnClickListener(new View.OnClickListener() {
+        Button BtnFragmentActivity = findViewById(R.id.BtnFragmentActivity);
+        BtnFragmentActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("1");
-                AlertDialogUtil alertDialogUtil = new AlertDialogUtil(getApplicationContext(), "Testing alert dialog");
-                System.out.println("2");
-
-                alertDialogUtil.showAlertDialog(new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        System.out.println("this is the onPositiveButtonClickEvent");
-                        dialog.dismiss();
-                    }
-                }, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        System.out.println("this is the onNegativeButtonClickEvent");
-                        dialog.dismiss();
-                    }
-                });
+                Intent intent = new Intent(MainActivity.this, FragmentActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
