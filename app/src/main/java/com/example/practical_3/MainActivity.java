@@ -1,5 +1,7 @@
 package com.example.practical_3;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.practical_3.utils.AlertDialogUtil;
 
 public class MainActivity extends AppCompatActivity {
     private static final String[] BIRTHMONTHS = new String[]{"January", "February", "March", "April", "May"};
@@ -82,6 +86,32 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> ACTVadapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, BIRTHMONTHS);
         AutoCompleteTextView ACTVBirthMonth = (AutoCompleteTextView) findViewById(R.id.ACTVBirthMonth);
         ACTVBirthMonth.setAdapter(ACTVadapter);
+
+        // region showAlertDialog
+        Button BtnShowAlertDialog = findViewById(R.id.BtnShowAlertDialog);
+        BtnShowAlertDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("1");
+                AlertDialogUtil alertDialogUtil = new AlertDialogUtil(getApplicationContext(), "Testing alert dialog");
+                System.out.println("2");
+
+                alertDialogUtil.showAlertDialog(new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        System.out.println("this is the onPositiveButtonClickEvent");
+                        dialog.dismiss();
+                    }
+                }, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        System.out.println("this is the onNegativeButtonClickEvent");
+                        dialog.dismiss();
+                    }
+                });
+            }
+        });
+
     }
 
     @Override
