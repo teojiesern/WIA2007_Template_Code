@@ -23,6 +23,12 @@ public class ActivityTemplate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_template);
 
+        // region get extra information from calling activity
+        String username = getIntent().getStringExtra("username");
+        String password = getIntent().getStringExtra("password");
+        System.out.println(username);
+        System.out.println(password);
+
         // region Activity
         Button BtnGoToMain = findViewById(R.id.BtnGoToMain);
 

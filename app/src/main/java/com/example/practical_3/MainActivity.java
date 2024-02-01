@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ActivityTemplate.class);
+                // give params to the next activity
+                intent.putExtra("username", "teo jie sern");
+                intent.putExtra("password", "some secure password");
                 startActivity(intent);
                 // called to perform onDestroy(), very optional
                 finish();
