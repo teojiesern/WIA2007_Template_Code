@@ -1,0 +1,5 @@
+For shared storage, this is the storage that stores all the files that can be shared with other apps. It consists of media content, documents, and datasets. The media content itself consists of many sub-directories, making sure that things are easily accessible to all apps for example all the images are stored under `Mediastore.Images` folder. However note that inside the image folder for example, we can see a lot of subfolders again, each indicating the app that have these images for example a folder for WhatsApp, a folder for Facebook, things like that.
+
+An app is free to access the images that it owns but if say WhatsApp wants to access images from Facebook, then it needs permissions. This is what we see in WhatsApp on first install say if we were to take photo and send it to the other person, only permission requested is camera. And anytime after that we are able to send it straight away without other permission. But let’s say if we want to use images captured by Facebook, we start to see the permission pop up
+
+Note that in shared storage, the folders are kept even after app uninstalls unless explicitly removed
