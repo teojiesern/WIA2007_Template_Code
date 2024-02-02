@@ -10,4 +10,5 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+    <string name="ic_spacing">8dp</string>
 </resources>
